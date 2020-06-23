@@ -35,19 +35,19 @@ final class SwiftagramAuthenticatorTests: XCTestCase {
     /// Test `BasicAuthenticator` login flow.
     func testBasicAuthenticator() {
         // removed implementation.
-        /*let invalidUsername = XCTestExpectation()
-         XCTAssert(Verification(response: ["label": "Email", "value": "1"])?.label == "Email")
-         // Authenticate and checkpoint.
-         let authenticator = BasicAuthenticator(username: "········",
-         password: "········")
-         authenticator.authenticate {
-         switch $0 {
-         case .failure(let error): print(error)
-         default: XCTFail("It should not succeed")
-         }
-         invalidUsername.fulfill()
-         }
-         wait(for: [invalidUsername], timeout: 60)*/
+        let invalidUsername = XCTestExpectation()
+        XCTAssert(Verification(response: ["label": "Email", "value": "1"])?.label == "Email")
+        // Authenticate and checkpoint.
+        let authenticator = BasicAuthenticator(username: "········",
+                                               password: "········")
+        authenticator.authenticate {
+            switch $0 {
+            case .failure(let error): print(error)
+            default: XCTFail("It should not succeed")
+            }
+            invalidUsername.fulfill()
+        }
+        wait(for: [invalidUsername], timeout: 60)
     }
 
     /// Test `TwoFactor`.

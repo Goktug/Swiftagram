@@ -37,7 +37,7 @@ internal extension BodyComposable where Self: BodyParsable {
             // Sign body.
             return try appending(body: [
                 "signed_body": [hash, description].joined(separator: "."),
-                "ig_sig_key_version": Constants.signatureVersion
+                //"ig_sig_key_version": Constants.signatureVersion
             ])
         } catch {
             fatalError(["Exception raised when signing.",
